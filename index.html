@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rasel Ahmmed | Computational Imaging Scientist &amp; ML Engineer</title>
+  <meta name="description" content="PhD candidate in Biomedical Engineering at Stony Brook University. Deep Learning for Medical Imaging, Computational Optics, PyTorch, SFDI. Open to industry roles in healthcare AI and computer vision.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2128;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #1f6feb;
+      --accent2: #388bfd;
+      --green: #3fb950;
+      --orange: #f78166;
+      --purple: #a5a0ff;
+      --gradient: linear-gradient(135deg, #1f6feb 0%, #a5a0ff 100%);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(13,17,23,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 2rem; height: 60px;
+    }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(31,111,235,0.12) 0%, transparent 70%); }
+    .hero-inner { max-width: 800px; }
+    .hero-badge { display: inline-block; background: rgba(31,111,235,0.15); border: 1px solid rgba(31,111,235,0.4); color: var(--accent2); border-radius: 999px; padding: 0.35rem 1rem; font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .hero h1 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 600px; margin: 0 auto 2rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .tag { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.75rem; font-size: 0.8rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; border-radius: 8px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-1px); }
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 700; margin-bottom: 3rem; }
+    .stats-bar { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2rem; }
+    .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.8; }
+    .about-text p strong { color: var(--text); }
+    .about-list { list-style: none; }
+    .about-list li { padding: 0.5rem 0; color: var(--muted); border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .about-list li:last-child { border-bottom: none; }
+    .about-list li span { color: var(--text); font-weight: 500; }
+    .skills-section { background: var(--surface); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .skill-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; }
+    .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .skill-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .skill-title { font-weight: 600; margin-bottom: 0.75rem; font-size: 0.95rem; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip { background: rgba(31,111,235,0.1); border: 1px solid rgba(31,111,235,0.25); color: var(--accent2); border-radius: 999px; padding: 0.15rem 0.6rem; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace; }
+    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pub-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; transition: border-color 0.2s; }
+    .pub-card:hover { border-color: var(--accent); }
+    .pub-year { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--muted); padding-top: 0.2rem; white-space: nowrap; }
+    .pub-title { font-weight: 600; margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .pub-title a { color: var(--text); text-decoration: none; }
+    .pub-title a:hover { color: var(--accent2); }
+    .pub-meta { font-size: 0.82rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .pub-journal { color: var(--green); font-weight: 500; }
+    .pub-badge { background: rgba(165,160,255,0.15); border: 1px solid rgba(165,160,255,0.3); color: var(--purple); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
+    .pub-badge.first { background: rgba(63,185,80,0.12); border-color: rgba(63,185,80,0.3); color: var(--green); }
+    .projects-section { background: var(--surface); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.2s, transform 0.2s; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-icon { font-size: 2rem; }
+    .project-title { font-weight: 700; font-size: 1rem; }
+    .project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .awards-list { display: flex; flex-direction: column; gap: 1rem; }
+    .award-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
+    .award-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .award-title { font-weight: 600; font-size: 0.95rem; }
+    .award-sub { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+    .contact-section { text-align: center; background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(31,111,235,0.1) 0%, transparent 70%); }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-link { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1.5rem; color: var(--text); text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-2px); }
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .nav-links { display: none; } .pub-card { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <span class="nav-logo">Rasel Ahmmed</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 PhD Candidate · Stony Brook University · Aug 2026</div>
+    <h1>Rasel <span>Ahmmed</span></h1>
+    <p class="hero-sub">Computational Imaging Scientist &amp; ML Engineer building clinical-grade deep learning tools for cancer diagnostics</p>
+    <div class="hero-tags">
+      <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Computer Vision</span><span class="tag">Medical Imaging</span><span class="tag">SFDI</span><span class="tag">U-Net / CNN</span><span class="tag">OpenCV</span><span class="tag">Python</span>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:rasel.ahmmed@stonybrook.edu" class="btn btn-primary">✉ Get in Touch</a>
+      <a href="https://www.linkedin.com/in/raahmmed" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/raselece25" target="_blank" class="btn btn-outline">GitHub</a>
+    </div>
+  </div>
+</section>
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div><div class="stat-num">4</div><div class="stat-label">Q1 Publications</div></div>
+    <div><div class="stat-num">8+</div><div class="stat-label">Years Experience</div></div>
+    <div><div class="stat-num">NIH</div><div class="stat-label">R01-Funded Research</div></div>
+    <div><div class="stat-num">20</div><div class="stat-label">Total Contributions</div></div>
+  </div>
+</div>
+<section id="about">
+  <div class="container">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>PhD candidate in Biomedical Engineering</strong> at Stony Brook University, graduating August 2026.</p>
+        <p>I design and build <strong>NIH R01-funded laparoscopic SFDI/SSOP imaging systems</strong> enabling real-time, quantitative optical property extraction in vivo.</p>
+        <p>I develop <strong>CNN and U-Net architectures</strong> replacing iterative optical fitting algorithms with real-time performance using PyTorch and TensorFlow.</p>
+        <p>Seeking <strong>Research Scientist, ML Engineer, or Computer Vision Scientist</strong> roles in healthcare AI — available August 2026.</p>
+      </div>
+      <div>
+        <ul class="about-list">
+          <li>🎓 <span>PhD, Bioengineering &amp; BME</span> — Stony Brook, 2022–2026</li>
+          <li>🎓 <span>M.Sc., ECE (GPA 3.93)</span> — Khulna Univ. of Engineering &amp; Technology</li>
+          <li>🏆 <span>NIH Graduate Research Assistantship</span> — R01-funded, 2023–2026</li>
+          <li>📝 <span>Peer Reviewer</span> — Sensing &amp; Biosensing Research, Elsevier</li>
+          <li>📍 <span>Stony Brook, NY</span> — Open to On-site / Hybrid / Remote</li>
+          <li>🌐 <span>US-based</span> — Available August 2026</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon">🤖</div><div class="skill-title">Deep Learning &amp; ML</div><div class="skill-chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">CNN</span><span class="chip">U-Net</span><span class="chip">Scikit-learn</span></div></div>
+      <div class="skill-card"><div class="skill-icon">👁</div><div class="skill-title">Computer Vision &amp; Imaging</div><div class="skill-chips"><span class="chip">OpenCV</span><span class="chip">SFDI</span><span class="chip">SSOP</span><span class="chip">Fluorescence</span><span class="chip">Structured Light</span></div></div>
+      <div class="skill-card"><div class="skill-icon">📊</div><div class="skill-title">Signal &amp; Data Processing</div><div class="skill-chips"><span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">SciPy</span><span class="chip">Fourier-domain</span><span class="chip">MATLAB</span></div></div>
+      <div class="skill-card"><div class="skill-icon">💻</div><div class="skill-title">Languages</div><div class="skill-chips"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">C++</span><span class="chip">Julia</span><span class="chip">LabVIEW</span></div></div>
+      <div class="skill-card"><div class="skill-icon">🔬</div><div class="skill-title">Biomedical Domain</div><div class="skill-chips"><span class="chip">Cancer Diagnostics</span><span class="chip">Tissue Phantoms</span><span class="chip">Monte Carlo Sim</span><span class="chip">In Vivo Imaging</span></div></div>
+      <div class="skill-card"><div class="skill-icon">📈</div><div class="skill-title">Research &amp; Visualization</div><div class="skill-chips"><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Jupyter</span><span class="chip">LaTeX</span><span class="chip">Git</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Research Output</div>
+    <h2 class="section-title">Publications</h2>
+    <div class="pub-list">
+      <div class="pub-card"><div class="pub-year">2024</div><div><div class="pub-title"><a href="https://www.mdpi.com/journal/pharmaceutics" target="_blank">Mesoscopic Fluorescence Imaging of Light-Triggered Chemotherapeutic Release in Cancer Spheroid Models</a></div><div class="pub-meta"><span class="pub-journal">Pharmaceutics (MDPI)</span><span class="pub-badge">IF 5.5</span><span class="pub-badge">Q1</span></div></div></div>
+      <div class="pub-card"><div class="pub-year">2024</div><div><div class="pub-title"><a href="https://www.mdpi.com/journal/ijms" target="_blank">Quantitative Fluorescence Imaging of Chemophototherapy Drug Pharmacokinetics Using Laparoscopic SFDI</a></div><div class="pub-meta"><span class="pub-journal">Int. J. Molecular Science (MDPI)</span><span class="pub-badge">IF 4.9</span><span class="pub-badge">Q1</span><span class="pub-badge first">⭐ First Author</span></div></div></div>
+      <div class="pub-card"><div class="pub-year">2024</div><div><div class="pub-title"><a href="https://www.taylorfrancis.com" target="_blank">Quantitative Fluorescence Imaging, Light-Triggering, and Monitoring of Drug Delivery (Book Chapter)</a></div><div class="pub-meta"><span class="pub-journal">Taylor &amp; Francis / NCI Handbook</span><span class="pub-badge">Chapter 5</span></div></div></div>
+      <div class="pub-card"><div class="pub-year">2019</div><div><div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank">Most Cited Paper — Optical Imaging Methods for Cancer Diagnostics</a></div><div class="pub-meta"><span class="pub-journal">ScienceDirect (Elsevier)</span><span class="pub-badge">Most Cited</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section id="projects" class="projects-section">
+  <div class="container">
+    <div class="section-label">Work</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-icon">🔬</div><div class="project-title">Laparoscopy-Integrated SFDI/SSOP System</div><div class="project-desc">Real-time wide-field laparoscopic imaging for quantitative tissue optical property extraction in vivo. NIH R01-funded.</div><div class="project-tags"><span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">SFDI</span><span class="chip">LabVIEW</span></div></div>
+      <div class="project-card"><div class="project-icon">🧠</div><div class="project-title">Deep Learning for Optical Property Extraction</div><div class="project-desc">CNN/U-Net solvers replacing iterative fitting in SFDI achieving real-time optical property maps.</div><div class="project-tags"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">U-Net</span><span class="chip">CNN</span></div></div>
+      <div class="project-card"><div class="project-icon">🧫</div><div class="project-title">3D Cancer Spheroid Fluorescence Imaging</div><div class="project-desc">Mesoscopic fluorescence imaging pipeline for light-triggered drug release monitoring in 3D tumor spheroid models. Published Pharmaceutics IF 5.5.</div><div class="project-tags"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">Fluorescence</span></div></div>
+      <div class="project-card"><div class="project-icon">📡</div><div class="project-title">SSOP Multi-Frequency Depth-Sensitive Imaging</div><div class="project-desc">Single-snapshot optical properties via structured illumination and Fourier-domain demodulation for depth-resolved tissue characterization.</div><div class="project-tags"><span class="chip">MATLAB</span><span class="chip">Fourier Analysis</span><span class="chip">Phase Demodulation</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="awards">
+  <div class="container">
+    <div class="section-label">Recognition</div>
+    <h2 class="section-title">Honors &amp; Awards</h2>
+    <div class="awards-list">
+      <div class="award-item"><div class="award-icon">🏆</div><div><div class="award-title">NIH Graduate Research Assistantship</div><div class="award-sub">NIH R01-funded · Stony Brook University · 2023–2026</div></div></div>
+      <div class="award-item"><div class="award-icon">🎖️</div><div><div class="award-title">NIH R01 Graduate Research Fellowship</div><div class="award-sub">Stony Brook University · 2023–2026</div></div></div>
+      <div class="award-item"><div class="award-icon">📝</div><div><div class="award-title">Peer Reviewer — Sensing &amp; Biosensing Research</div><div class="award-sub">Elsevier · 2020 &amp; 2023</div></div></div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <p style="color: var(--muted); max-width: 520px; margin: 0 auto;">Seeking <strong style="color: var(--text)">Research Scientist, ML Engineer, and Computer Vision Scientist</strong> roles. Available August 2026.</p>
+    <div class="contact-links">
+      <a href="mailto:rasel.ahmmed@stonybrook.edu" class="contact-link">✉ rasel.ahmmed@stonybrook.edu</a>
+      <a href="https://www.linkedin.com/in/raahmmed" target="_blank" class="contact-link">in LinkedIn</a>
+      <a href="https://github.com/raselece25" target="_blank" class="contact-link">⌥ GitHub</a>
+    </div>
+  </div>
+</section>
+<footer><p>© 2026 Rasel Ahmmed · Built with GitHub Pages</p></footer>
+</body>
+</html>
